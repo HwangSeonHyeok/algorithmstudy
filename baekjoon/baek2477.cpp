@@ -25,6 +25,9 @@ int main(){
     if((i1==0 && i2 == 5)||(i1==5 && i2 == 0)){
         emtarea = dis[min(i1,i2)+2]*dis[min(i1,i2)+3];
     }
+    else if(min(i1,i2)==2){
+        emtarea = dis[0]*dis[5];
+    }
     else if(min(i1,i2)>=3){
         emtarea = dis[min(i1,i2)-2]*dis[min(i1,i2)-3];
     }else{

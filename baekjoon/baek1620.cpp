@@ -29,6 +29,4 @@ int main(){
             cout<<index.at(q)<<'\n';
         }
     }
-
-
 }

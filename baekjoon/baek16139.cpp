@@ -24,9 +24,7 @@ int main(){
         char c;
         int l, r, result;
         cin >> c >> l >> r;
-        //cout <<'l'<< arr[l][c-'a']<<'\n';
         result = arr[r+1][c-'a']-arr[l][c-'a'];
         cout << result << '\n';
     }
-    
 }

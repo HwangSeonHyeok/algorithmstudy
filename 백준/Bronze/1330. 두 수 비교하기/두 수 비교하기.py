@@ -1,0 +1,9 @@
+x=input()
+a=int(x.split()[0])
+b=int(x.split()[1])
+if(a>b):
+    print(">")
+elif(a<b):
+    print("<")
+else:
+    print("==")

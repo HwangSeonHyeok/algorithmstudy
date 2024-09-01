@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class Main {
 	static class Item implements Comparable<Item> {
-		long a, b, diff;
+		int a, b, diff;
 
-		public Item(long a, long b) {
+		public Item(int a, int b) {
 			super();
 			this.a = a;
 			this.b = b;

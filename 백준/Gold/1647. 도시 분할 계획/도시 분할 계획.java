@@ -5,15 +5,15 @@ import java.util.Arrays;
 public class Main {
 
 	private static int[] parents;
-	private static int V,E; 
+	private static int N,M; 
 	private static Edge[] edgeList;
 
 
 	private static void makeSet() {
 
-		parents = new int[V+1];
+		parents = new int[N+1];
 
-		for (int i = 1; i <= V; i++) {
+		for (int i = 1; i <= N; i++) {
 			parents[i] = i;
 		}
 	}
@@ -60,14 +60,14 @@ public class Main {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
 		String[] split = in.readLine().split(" ");
-		V = Integer.parseInt(split[0]);
-		E = Integer.parseInt(split[1]);
+		N = Integer.parseInt(split[0]);
+		M = Integer.parseInt(split[1]);
 
-		edgeList = new Edge[E];
+		edgeList = new Edge[M];
 
 		int from, to, weight;
 
-		for (int i = 0; i < E; i++) {
+		for (int i = 0; i < M; i++) {
 			split = in.readLine().split(" ");
 			from = Integer.parseInt(split[0]);
 			to = Integer.parseInt(split[1]);
@@ -79,12 +79,12 @@ public class Main {
 		makeSet();
 		int result = 0;
 		int count = 0;
-		if(V!=2) {
+		if(N!=2) {
 			for (Edge edge : edgeList) {
 				if (union(edge.from, edge.to)) {
 					result += edge.weight;
 	
-					if (++count == V - 2) {
+					if (++count == N - 2) {
 						break;
 					}
 				}

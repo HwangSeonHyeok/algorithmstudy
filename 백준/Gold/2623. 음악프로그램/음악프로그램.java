@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Queue;
 
 public class Main {
-	static class SubPD{
+	static class Singer{
 		int num, backCnt;
 		List<Integer> next;
-		public SubPD(int num) {
+		public Singer(int num) {
 			this.num = num;
 			this.backCnt = 0;
 			this.next = new ArrayList<>();
@@ -22,17 +22,17 @@ public class Main {
 		String[] split = in.readLine().split(" ");
 		int n = Integer.parseInt(split[0]);
 		int m = Integer.parseInt(split[1]);
-		SubPD[] spArr = new SubPD[n+1];
+		Singer[] singerArr = new Singer[n+1];
 		for(int i = 1; i<=n;i++) {
-			spArr[i] = new SubPD(i);
+			singerArr[i] = new Singer(i);
 		}
 		for(int i = 0; i<m;i++) {
 			split = in.readLine().split(" ");
 			for(int j =1; j<split.length-1; j++) {
 				int from = Integer.parseInt(split[j]);
 				int to = Integer.parseInt(split[j+1]);
-				spArr[from].next.add(to);
-				spArr[to].backCnt++;
+				singerArr[from].next.add(to);
+				singerArr[to].backCnt++;
 			}
 		}
 
@@ -40,7 +40,7 @@ public class Main {
 		int cnt=0;
 		Queue<Integer> q= new ArrayDeque<>();
 		for(int i =1; i<=n;i++) {
-			if(spArr[i].backCnt==0) {
+			if(singerArr[i].backCnt==0) {
 				q.add(i);
 			}
 		}
@@ -48,9 +48,9 @@ public class Main {
 			int current = q.poll();
 			cnt++;
 			sb.append(current+"\n");
-			for(int next :spArr[current].next) {
-				spArr[next].backCnt--;
-				if(spArr[next].backCnt==0) {
+			for(int next :singerArr[current].next) {
+				singerArr[next].backCnt--;
+				if(singerArr[next].backCnt==0) {
 					q.add(next);
 				}
 			}

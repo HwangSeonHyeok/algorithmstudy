@@ -3,7 +3,7 @@ import java.io.InputStreamReader;
 
 public class Main {
 
-	static int mod = 1000000007;
+	static final int mod = 1000000007;
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -24,7 +24,7 @@ public class Main {
 					dp[n][i] = dp[n + 1][i];
 					if (i > 0) {
 						dp[n][i] += dp[n + 1][i - 1];
-						dp[n][i] %= 1000000007;
+						dp[n][i] %= mod;
 					}
 					if (i < m - 1) {
 						dp[n][i] += dp[n + 1][i + 1];

@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -27,15 +26,12 @@ public class Main {
 			}
 			kimbaps.add(kimbap);
 		}
-		Collections.sort(kimbaps, Collections.reverseOrder());
 		int left = 1;
 		int right = 1000000000;
 		while (left < right) {
 			int mid = (left + right) / 2;
 			int cnt = 0;
 			for (int kimbap : kimbaps) {
-				if (mid > kimbap)
-					break;
 				cnt += kimbap / mid;
 			}
 			if (cnt >= m) {
@@ -44,11 +40,8 @@ public class Main {
 				right = mid - 1;
 			}
 		}
-
 		int cnt = 0;
 		for (int kimbap : kimbaps) {
-			if (left > kimbap)
-				break;
 			cnt += kimbap / left;
 		}
 		if (cnt >= m) {

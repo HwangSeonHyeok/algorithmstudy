@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class Main {
 	static int n;
-	static long ans1, ans2, ans3;
+	static int ans1, ans2, ans3;
 	static long absMinPh = Long.MAX_VALUE;
-	static long[] liquids;
+	static int[] liquids;
 
 	static void solution() {
 		for (int i = 0; i < n - 2; i++) {
@@ -16,14 +16,14 @@ public class Main {
 			while (left < right) {
 				Long ph = p1 + liquids[left] + liquids[right];
 				if (ph == 0) {
-					ans1 = p1;
+					ans1 = (int) p1;
 					ans2 = liquids[left];
 					ans3 = liquids[right];
 					return;
 				}
 				if (Math.abs(ph) < absMinPh) {
 					absMinPh = Math.abs(ph);
-					ans1 = p1;
+					ans1 = (int) p1;
 					ans2 = liquids[left];
 					ans3 = liquids[right];
 				}
@@ -41,9 +41,9 @@ public class Main {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		n = Integer.parseInt(in.readLine());
 		String[] split = in.readLine().split(" ");
-		liquids = new long[n];
+		liquids = new int[n];
 		for (int i = 0; i < n; i++) {
-			liquids[i] = Long.parseLong(split[i]);
+			liquids[i] = Integer.parseInt(split[i]);
 		}
 		Arrays.sort(liquids);
 		solution();

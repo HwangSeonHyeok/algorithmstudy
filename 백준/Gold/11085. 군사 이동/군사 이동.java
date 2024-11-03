@@ -62,7 +62,6 @@ public class Main {
 		for (int i = 1; i < p; i++) {
 			parent[i] = i;
 		}
-		int ans = Integer.MAX_VALUE;
 		for (Road road : roads) {
 			int a = road.a;
 			int b = road.b;

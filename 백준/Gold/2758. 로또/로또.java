@@ -8,15 +8,12 @@ public class Main {
 		int t = Integer.parseInt(in.readLine());
 		long[][] dp = new long[11][2001];
 		for (int i = 1; i <= 2000; i++) {
-			dp[1][i] = 1;
+			dp[1][i] = i;
 
 		}
 		for (int i = 2; i <= 10; i++) {
 			for (int j = (int) Math.pow(2, i - 1); j <= 2000; j++) {
-				for (int k = (int) Math.pow(2, i - 2); k <= j / 2; k++) {
-					dp[i][j] += dp[i - 1][k];
-
-				}
+				dp[i][j] += dp[i - 1][j / 2] + dp[i][j - 1];
 
 			}
 		}
@@ -25,11 +22,8 @@ public class Main {
 			String[] split = in.readLine().split(" ");
 			int n = Integer.parseInt(split[0]);
 			int m = Integer.parseInt(split[1]);
-			long ans = 0;
-			for (int j = (int) Math.pow(2, n - 1); j <= m; j++) {
-				ans += dp[n][j];
-			}
-			System.out.println(ans);
+
+			System.out.println(dp[n][m]);
 
 		}
 

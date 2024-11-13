@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class Main {
-	static long mod = (long) 1e10;
+	static long mod = (long) 1e8;
 
 	static long fact(long a, long b) {
 		a *= b;

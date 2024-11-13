@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class Main {
-	static long mod = (long) 1e8;
+	static long mod = (long) 1e6;
 
 	static long fact(long a, long b) {
 		a *= b;
@@ -51,7 +51,7 @@ public class Main {
 				tmpIdx--;
 
 			}
-			if (cnt > 5 || len == -1) {
+			if (cnt > 4 || len == -1) {
 				ans = fiveN + i - 1;
 				break;
 			}

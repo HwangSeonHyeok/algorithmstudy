@@ -44,9 +44,11 @@ public class Main {
 		makeSeg(1, 1, n);
 
 		int end = n - m + 1;
+		StringBuffer sb = new StringBuffer();
 		for (int i = m; i <= end; i++) {
-			System.out.print(querySeg(1, 1, n, i - m + 1, i + m - 1) + " ");
+			sb.append(querySeg(1, 1, n, i - m + 1, i + m - 1) + " ");
 		}
+		System.out.println(sb);
 
 	}
 

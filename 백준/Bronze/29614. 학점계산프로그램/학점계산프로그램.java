@@ -1,6 +1,5 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.text.DecimalFormat;
 
 public class Main {
 
@@ -21,8 +20,7 @@ public class Main {
 				sum += (4.0 - c + 'A');
 			}
 		}
-		DecimalFormat formatter = new DecimalFormat("#.#####");
-		System.out.println(formatter.format(sum / cnt));
+		System.out.println(sum / cnt);
 	}
 
 }

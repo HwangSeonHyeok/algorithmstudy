@@ -24,12 +24,6 @@ public class Main {
 		public boolean hasStation(int dest) {
 			return stationSet.contains(dest);
 		}
-
-		@Override
-		public String toString() {
-			return "Line [stationSet=" + stationSet + "]";
-		}
-
 	}
 
 	static class Goofcode {
@@ -38,11 +32,6 @@ public class Main {
 		public Goofcode(int line, int step) {
 			this.line = line;
 			this.step = step;
-		}
-
-		@Override
-		public String toString() {
-			return "Goofcode [line=" + line + ", step=" + step + "]";
 		}
 
 	}

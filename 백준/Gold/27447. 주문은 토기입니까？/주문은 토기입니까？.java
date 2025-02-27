@@ -15,11 +15,10 @@ public class Main {
         int closeTime = customers[n-1]+1;
         int lastCoffeeTime = 0;
         boolean[] isAct = new boolean[closeTime];
-        boolean isAble = true;
         customerLoop:for(int i = 0; i<n; i++){
             if(customers[i]<i*3+2){
-                isAble = false;
-                break;
+                System.out.println("fail");
+                return;
             }
             int startTime = Math.max(customers[i]-m,lastCoffeeTime);
             isAct[customers[i]] = true;
@@ -30,16 +29,9 @@ public class Main {
                     continue customerLoop;
                 }
             }
-            isAble = false;
-            break;
-        }
-        if(isAble){
-            System.out.println("success");
-        }else{
             System.out.println("fail");
+            return;
         }
-
-
-
+        System.out.println("success");
     }
 }

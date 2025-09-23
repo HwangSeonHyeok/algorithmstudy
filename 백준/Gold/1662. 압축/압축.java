@@ -3,7 +3,6 @@ import java.io.InputStreamReader;
 
 public class Main {
 	static char[] s;
-	static int ans = 0;
 
 	static class Pair {
 		int length, idx;
@@ -36,8 +35,8 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		s = in.readLine().toCharArray();
-		Pair p = calculate(0);
-		System.out.println(p.length);
+		Pair ans = calculate(0);
+		System.out.println(ans.length);
 
 	}
 

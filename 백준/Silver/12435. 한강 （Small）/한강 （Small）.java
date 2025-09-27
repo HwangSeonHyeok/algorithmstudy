@@ -10,20 +10,12 @@ public class Main {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
 		for (int i = 2; i <= 1000000; i++) {
-			int cnt = 0;
-			int last = -1;
-			for (int j = 2; j * j <= i; j++) {
-				if (i % j == 0) {
-					if (j * j == i)
-						cnt++;
-					else
-						cnt += 2;
-					if (last == -1)
-						last = j;
+			for (int j = 2 * i; j <= 1000000; j += i) {
+				familyInfo[j][0]++;
+				if (familyInfo[j][1] == 0) {
+					familyInfo[j][1] = i;
 				}
 			}
-			familyInfo[i][0] = cnt;
-			familyInfo[i][1] = last;
 
 		}
 		int t = Integer.parseInt(in.readLine());

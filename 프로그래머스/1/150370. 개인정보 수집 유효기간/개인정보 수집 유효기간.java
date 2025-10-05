@@ -1,42 +1,27 @@
 import java.util.*;
 class Solution {
-    Map<Character,Integer> map = new HashMap<>();
+    
+    int dateToDay(String date){
+        StringTokenizer st = new StringTokenizer(date,".");
+        int year = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
+        int d = Integer.parseInt(st.nextToken());
+        return year*336+m*28+d;
+    }
     public int[] solution(String today, String[] terms, String[] privacies) {
         List<Integer> ansList = new ArrayList<>();
-        StringTokenizer st = new StringTokenizer(today,".");
-        int todayY = Integer.parseInt(st.nextToken());
-        int todayM = Integer.parseInt(st.nextToken());
-        int todayD = Integer.parseInt(st.nextToken());
+        int todayDay = dateToDay(today);
+        Map<Character,Integer> map = new HashMap<>();
         for(String term: terms){
-            st = new StringTokenizer(term);
+            StringTokenizer st = new StringTokenizer(term);
             map.put(st.nextToken().charAt(0),Integer.parseInt(st.nextToken()));
         }
         for(int i = 1; i<=privacies.length;i++){
-            st = new StringTokenizer(privacies[i-1]);
+            StringTokenizer st = new StringTokenizer(privacies[i-1]);
             String date = st.nextToken();
             Character type = st.nextToken().charAt(0);
-            st = new StringTokenizer(date,".");
-            int agreeY = Integer.parseInt(st.nextToken());
-            int agreeM = Integer.parseInt(st.nextToken());
-            int agreeD = Integer.parseInt(st.nextToken());
-            int dueY = agreeY;
-            int dueM = agreeM;
-            int dueD = agreeD-1;
-            if(dueD==0){
-                dueD = 28;
-                dueM--;
-            }
-            dueM+=map.get(type);
-            dueY += dueM/12;
-            dueM%=12;
-            if(dueM==0){
-                dueM=12;
-                dueY--;
-            }
-            if(todayY>dueY||
-               (todayY==dueY&&todayM>dueM)||
-               (todayY==dueY&&todayM==dueM&&todayD>dueD)
-              ){
+            int dueDay = dateToDay(date)+28*map.get(type);
+            if(todayDay>=dueDay){
                 ansList.add(i);
             }
         }

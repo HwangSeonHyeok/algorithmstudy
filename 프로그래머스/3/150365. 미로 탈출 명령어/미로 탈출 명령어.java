@@ -10,7 +10,6 @@ class Solution {
     boolean dfs(int n, int m, int x, int y, int r, int c, int k, int depth){
         int remainDist = Math.abs(r-x)+Math.abs(c-y);
         if(remainDist>k-depth)return false;
-        if((k-depth)%2!=remainDist%2)return false;     
         if(x==r && y==c && depth==k){
             return true;
         }
@@ -33,7 +32,7 @@ class Solution {
     public String solution(int n, int m, int x, int y, int r, int c, int k) {
         route = new char[k];
         String answer = "";
-        if(dfs(n,m,x,y,r,c,k,0)){
+        if((Math.abs(r-x)+Math.abs(c-y))%2==k%2&&dfs(n,m,x,y,r,c,k,0)){
             answer = new String(route);
         }else{
             answer = "impossible";

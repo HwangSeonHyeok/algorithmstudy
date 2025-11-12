@@ -8,8 +8,6 @@ public class Main {
 		String str;
 		StringBuilder sb = new StringBuilder();
 		while ((str = in.readLine()) != null) {
-			if (str.isEmpty())
-				break;
 			long num = Long.parseLong(str);
 			int cnt = 1;
 			long tmp = 1;

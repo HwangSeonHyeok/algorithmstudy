@@ -12,16 +12,16 @@ public class Main {
 		int m = Integer.parseInt(st.nextToken());
 		int total = n + m;
 		st = new StringTokenizer(in.readLine());
-		String nameA = st.nextToken();
-		String nameB = st.nextToken();
+		char[] nameA = st.nextToken().toCharArray();
+		char[] nameB = st.nextToken().toCharArray();
 		int[] testArr = new int[total];
 		int idx = 0;
 		for (int i = 0; i < Math.max(n, m); i++) {
 			if (i < n) {
-				testArr[idx++] = alphabetStrokes[nameA.charAt(i) - 'A'];
+				testArr[idx++] = alphabetStrokes[nameA[i] - 'A'];
 			}
 			if (i < m) {
-				testArr[idx++] = alphabetStrokes[nameB.charAt(i) - 'A'];
+				testArr[idx++] = alphabetStrokes[nameB[i] - 'A'];
 			}
 		}
 		for (int i = total; i > 2; i--) {

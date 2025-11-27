@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -19,29 +20,15 @@ public class Main {
 					numbers[idx++] = Integer.parseInt(st.nextToken());
 				}
 			}
-			boolean[] goToBack = new boolean[n];
+			int[] sortedNumbers = Arrays.copyOf(numbers, n);
+			Arrays.sort(sortedNumbers);
+			int matchingIdx = 0;
 			for (int i = 0; i < n; i++) {
-				for (int j = i + 1; j < n; j++) {
-					if (numbers[j] < numbers[i]) {
-						goToBack[i] = true;
-						break;
-					}
-				}
-				if (!goToBack[i]) {
-					for (int j = i - 1; j >= 0; j--) {
-						if (numbers[j] < numbers[i] && goToBack[j]) {
-							goToBack[i] = true;
-							break;
-						}
-					}
+				if (numbers[i] == sortedNumbers[matchingIdx]) {
+					matchingIdx++;
 				}
 			}
-			int ans = 0;
-			for (int i = 0; i < n; i++) {
-				if (goToBack[i])
-					ans++;
-			}
-			sb.append(k).append(" ").append(ans).append("\n");
+			sb.append(k).append(" ").append(n - matchingIdx).append("\n");
 		}
 		System.out.println(sb);
 	}

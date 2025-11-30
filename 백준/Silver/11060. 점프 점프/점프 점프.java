@@ -26,7 +26,7 @@ public class Main {
 				}
 			}
 		}
-		if (dp[n - 1] == 1010) {
+		if (dp[n - 1] == MAX_COUNT) {
 			System.out.println(-1);
 		} else {
 			System.out.println(dp[n - 1]);

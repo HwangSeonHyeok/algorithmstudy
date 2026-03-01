@@ -27,18 +27,18 @@ public class Main {
 			return isAns(a, b, cnt);
 		}
 
-		boolean isFinish = false;
 		for (int i = 0; i < 10; i++) {
 			if (depth < 2) {
-				isFinish = solve(depth + 1, a * 10 + i, b, cnt + matches[i]);
+				if (solve(depth + 1, a * 10 + i, b, cnt + matches[i])) {
+					return true;
+				}
 			} else {
-				isFinish = solve(depth + 1, a, b * 10 + i, cnt + matches[i]);
-			}
-			if (isFinish) {
-				return true;
+				if (solve(depth + 1, a, b * 10 + i, cnt + matches[i])) {
+					return true;
+				}
 			}
 		}
-		return isFinish;
+		return false;
 
 	}
 

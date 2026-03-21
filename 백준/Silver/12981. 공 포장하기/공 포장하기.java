@@ -18,7 +18,7 @@ public class Main {
 		for (int i = 1; i <= 2; i++) {
 			balls[i] -= balls[0];
 			ans += balls[i] / 3;
-			balls[i] = balls[i] % 3;
+			balls[i] %= 3;
 		}
 		ans += (balls[1] + balls[2] + 1) / 2;
 		System.out.println(ans);
